@@ -3,11 +3,9 @@
 use Phalcon\Mvc\Micro;
 use Phalcon\Di\FactoryDefault;
 use Phalcon\Mvc\Collection\Manager;
-use Admin\Hooks\hooks;
 
 define("BASE_PATH", (__DIR__));
 require_once(BASE_PATH . '/vendor/autoload.php');
-require_once('hooks.php');
 
 // Use Loader() to autoload our model
 $container = new FactoryDefault();
@@ -46,8 +44,8 @@ $app->post(
 
         if ($output->getInsertedCount() > 0) {
             echo "<h3>Inserted successfully</h3>";
+            Admin\Hooks\createHooks('/product/create', $arr);
             // inserted successfully, and update the hook now
-            hooks::createHooks('/product/create', $arr);
         } else {
             echo "<h3>There was some error</h3>";
             die;
@@ -62,9 +60,9 @@ $app->put(
         $id = $product->id;
         $output = $this->mongo->products->updateOne(['id' => (string)$id], ['$set' => $product]);
         if ($output->getModifiedCount()) {
-            echo "<h3>Updated Successfully</h3>";
+            echo "<h3>Update Successfully</h3>";
+            Admin\Hooks\createHooks('/product/update');
             // update the hook now
-            hooks::createHooks('/product/update', $product);
         } else {
             echo "<h3>There was some error !</h3>";
             die;

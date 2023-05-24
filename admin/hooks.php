@@ -5,7 +5,7 @@ namespace Admin\Hooks;
 require_once(BASE_PATH . '/vendor/autoload.php');
 class hooks
 {
-    function createHooks($method, $args)
+    public function createHooks($method, $args)
     {
         $mongo = new \MongoDB\Client(
             'mongodb+srv://root:VajsFVXK36vxh4M6@cluster0.nwpyx9q.mongodb.net/?retryWrites=true&w=majority'
@@ -28,7 +28,7 @@ class hooks
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $output = curl_exec($ch);
             curl_close($ch);
-            return var_dump($output);
+            return $output;
         }
     }
 }
