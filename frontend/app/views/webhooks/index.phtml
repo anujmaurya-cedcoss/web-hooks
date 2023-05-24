@@ -1,0 +1,23 @@
+<form action = "/webhooks/create" method="POST" class = 'col-5'>
+  <div class="form-group">
+    <label for="formGroupExampleInput">WebHook Name</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="webhook name" name = 'webhook'>
+  </div>
+
+  <div class="form-group">
+    <label for="formGroupExampleInput">Event Name</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="event name" name = 'event'>
+  </div>
+
+  <div class="form-group">
+    <label for="formGroupExampleInput">Enter Your url</label>
+    <input type="text" class="form-control" placeholder="ip address" name = 'ip'>
+  </div>
+
+  <div class="form-group">
+    <label for="formGroupExampleInput">Secret Key</label>
+    <textarea type="text" class="form-control" placeholder="webhook name" name = 'key'></textarea>
+  </div>
+
+  <input type="submit" value = 'Add Hook' class = 'btn btn-success'>
+</form>
