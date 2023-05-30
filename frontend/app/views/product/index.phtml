@@ -1,0 +1,19 @@
+<div class = 'd-grid gap-2 d-md-flex justify-content-md-end' >
+    <a href="/product/add" class = 'btn btn-primary float-right mt-3'>Add New Product</a>
+</div>
+<h3>Product List</h3>
+<div class = 'wrapper d-flex row'>
+    <?php
+        foreach ($data as $value) {
+            echo "<div class=\"card m-3\" style=\"width: 18rem;\">
+            <div class=\"card-body\">
+            <h6 class=\"card-subtitle mb-2 text-muted\"><strong>ID: </strong>$value->id</h6>
+              <h5 class=\"card-title\"><strong>Name :</strong> $value->name</h5>
+              <p class=\"card-text\"><strong>Price : </strong> $value->price</p>
+              <p class=\"card-text\"><strong>Stock : </strong> $value->stock</p>
+              <a href=\"/product/edit?id=$value->id\" class=\"card-link btn btn-secondary\">Update</a>
+            </div>
+          </div>";
+        }
+    ?>
+</div>

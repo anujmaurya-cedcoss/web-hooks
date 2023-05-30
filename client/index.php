@@ -43,9 +43,9 @@ $app->post(
         $output = $this->mongo->products->insertOne($arr);
 
         if ($output->getInsertedCount() > 0) {
-            echo "<h3>New Product Inserted</h3>";
+            echo "<h3>New Product Inserted on client side</h3>";
         } else {
-            echo "<h3>There was some error</h3>";
+            echo "<h3>There was some error on client side</h3>";
             die;
         }
     }
@@ -59,9 +59,9 @@ $app->put(
         $id = $product['id'];
         $output = $this->mongo->products->updateOne(['id' => $id], ['$set' => $product]);
         if ($output->getModifiedCount()) {
-            echo "<h3>Product Update Successfully</h3>";
+            echo "<h3>Product Update Successfully on client side</h3>";
         } else {
-            echo "<h3>There was some error !</h3>";
+            echo "<h3>There was some error on client side!</h3>";
             die;
         }
         var_dump($output);

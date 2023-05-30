@@ -9,7 +9,6 @@ define("BASE_PATH", (__DIR__));
 require_once(BASE_PATH . '/vendor/autoload.php');
 require_once('hooks.php');
 
-// Use Loader() to autoload our model
 $container = new FactoryDefault();
 $container->set(
     'mongo',
@@ -54,7 +53,17 @@ $app->post(
         }
     }
 );
-
+$app->get(
+    '/product/get',
+    function () {
+        $output = $this->mongo->products->find();
+        $data = [];
+        foreach ($output as $value) {
+            $data[] = $value;
+        }
+        echo json_encode($data);
+    }
+);
 $app->put(
     '/product/update',
     function () use ($app) {

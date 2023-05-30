@@ -1,0 +1,28 @@
+<?php $data = json_decode($data);
+?>
+
+<h3 class = 'text-center m-3'>Update Product</h3>
+<div class='d-flex justify-content-center'>
+    <form action="/product/update?id=<?php echo $data->id ?>" method="post">
+        <label for="">
+            Product ID : <input class='form form-control' type="text" name="id" id="id" value=<?php echo $data->id ?> disabled>
+        </label>
+        <br>
+        <label for="name">
+            Product Name :
+            <input type="text" name="name" value="<?php echo $data->name ?>" class='form form-control'>
+        </label>
+        <br>
+        <label for="price">
+            Product Price :
+            <input type="text" name="price" value="<?php echo $data->price ?>" class='form form-control'>
+        </label>
+        <br>
+        <label for="name">
+            Product Stock :
+            <input type="text" name="stock" value="<?php echo $data->stock ?>" class='form form-control'>
+        </label>
+        <br>
+        <input class='btn btn-success' type="submit" value="Update">
+    </form>
+</div>
